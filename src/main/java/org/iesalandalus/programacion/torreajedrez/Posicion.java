@@ -11,6 +11,16 @@ public class Posicion {
 		setFila(fila);
 		setColumna(columna);
 	}
+	
+	//Constructor copia
+	public Posicion (Posicion e) {
+		if (e == null) {
+			throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
+		} else {
+			setFila(e.getFila());
+			setColumna(e.getColumna());
+		}
+	}
 
 		//Getters y Setters
 	private void setFila(int fila) {
