@@ -4,6 +4,13 @@ public class Posicion {
 		//Atributos
 	private int fila;
 	private char columna;
+	
+	//Constructores
+	//Constructores con parámetros de entrada
+	public Posicion (int fila, char columna) {
+		setFila(fila);
+		setColumna(columna);
+	}
 
 		//Getters y Setters
 	private void setFila(int fila) {
