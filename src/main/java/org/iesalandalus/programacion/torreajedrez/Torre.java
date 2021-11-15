@@ -22,6 +22,20 @@ public class Torre {
 		}
 	}
 	
+	//Constructor con parámetros Color y Columna
+	public Torre(Color color, char columna) {
+		setColor(color);
+		if (columna != 'a' || columna != 'h') {
+			throw new IllegalArgumentException("La posición no es la esperada");
+		}else{
+			if (color.equals(color.NEGRO)) {
+				setPosicion(new Posicion(8, columna));
+			}else {
+				setPosicion(new Posicion(1, columna));
+			}
+		}
+	}
+	
 	//Getters y Setters
 	private void setPosicion(Posicion posicion) {
 		if (posicion == null) {
