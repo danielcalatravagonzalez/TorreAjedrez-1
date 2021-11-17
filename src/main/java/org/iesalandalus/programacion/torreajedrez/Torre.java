@@ -28,7 +28,7 @@ public class Torre {
 	public Torre(Color color, char columna) {
 		setColor(color);
 		if (columna != 'a' || columna != 'h') {
-			throw new IllegalArgumentException("La posición no es la esperada");
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		} else {
 			if (color.equals(color.NEGRO)) {
 				setPosicion(new Posicion(8, columna));
@@ -41,7 +41,7 @@ public class Torre {
 	// Getters y Setters
 	private void setPosicion(Posicion posicion) {
 		if (posicion.equals(null)) {
-			throw new NullPointerException("La posición no es la esperada");
+			throw new NullPointerException("La posición no es la esperada.");
 		}
 		this.posicion = posicion;
 	}
@@ -63,10 +63,36 @@ public class Torre {
 	}
 
 	// Métodos
+	// Método enrocar con parámetro Direccion
+	public void enrocar(Direccion direccion) throws OperationNotSupportedException {
+		if (direccion.equals(null)) {
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
+		} else {
+			switch (direccion) {
+			case ENROQUE_CORTO:
+				if (posicion.getColumna() == 'h' && (posicion.getFila() == 1 || posicion.getFila() == 8)) {
+					setPosicion(new Posicion(posicion.getFila(), 'f'));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			case ENROQUE_LARGO:
+				if (posicion.getColumna() == 'a' && (posicion.getFila() == 1 || posicion.getFila() == 8)) {
+					setPosicion(new Posicion(posicion.getFila(), 'd'));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
 	// Método mover con parámetro Direccion y pasos (int)
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
 		if (pasos < 1) {
-			throw new IllegalArgumentException("ERROR: los pasos deben ser positivos");
+			throw new IllegalArgumentException("ERROR: El número de pasos debe ser positivo.");
 		} else if (direccion.equals(null)) {
 			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
 		} else {
