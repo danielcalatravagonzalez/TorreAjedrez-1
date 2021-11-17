@@ -183,4 +183,9 @@ public class Torre {
 		return color == other.color && Objects.equals(posicion, other.posicion);
 	}
 
+	@Override
+	public String toString() {
+		return "color=" + color + ", posicion=" + posicion;
+	}
+
 }
