@@ -19,31 +19,38 @@ public class Torre {
 	// Constructor con parámetro Color
 	public Torre(Color color) {
 		setColor(color);
-		if (color.equals(color.BLANCO)) {
+		if (color.equals(null)) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}else {
+		if (color.equals(Color.BLANCO)) {
 			setPosicion(new Posicion(1, 'h'));
 		} else {
 			setPosicion(new Posicion(8, 'h'));
+		}
 		}
 	}
 
 	// Constructor con parámetros Color y Columna
 	public Torre(Color color, char columna) {
 		setColor(color);
-		if (columna != 'a' || columna != 'h') {
-			throw new IllegalArgumentException("ERROR: Columna no válida.");
-		} else {
-			if (color.equals(color.NEGRO)) {
-				setPosicion(new Posicion(8, columna));
-			} else {
-				setPosicion(new Posicion(1, columna));
-			}
-		}
+		    if (columna == 'a' || columna == 'h') {
+		      if (color.equals(Color.BLANCO)) {
+		        setPosicion(new Posicion(1, columna));
+		      } else {
+		        setPosicion(new Posicion(8, columna));
+		      }
+		    } else if (color.equals(null)) {
+		    	throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		    }else {
+		      throw new IllegalArgumentException("ERROR: Columna no válida.");
+		    }
+		  
 	}
 
 	// Getters y Setters
 	private void setPosicion(Posicion posicion) {
-		if (posicion.equals(null)) {
-			throw new NullPointerException("La posición no es la esperada.");
+		if (posicion==null) {
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
 		}
 		this.posicion = posicion;
 	}
@@ -53,7 +60,7 @@ public class Torre {
 	}
 
 	private void setColor(Color color) {
-		if (color.equals(null)) {
+		if (color==null) {
 			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
 		} else {
 			this.color = color;
@@ -67,7 +74,7 @@ public class Torre {
 	// Métodos
 	// Método enrocar con parámetro Direccion
 	public void enrocar(Direccion direccion) throws OperationNotSupportedException {
-		if (direccion.equals(null)) {
+		if (direccion==null) {
 			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
 		} else {
 			switch (direccion) {
@@ -95,7 +102,7 @@ public class Torre {
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
 		if (pasos < 1) {
 			throw new IllegalArgumentException("ERROR: El número de pasos debe ser positivo.");
-		} else if (direccion.equals(null)) {
+		} else if (direccion==null) {
 			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
 		} else {
 			switch (direccion) {
@@ -185,7 +192,9 @@ public class Torre {
 
 	@Override
 	public String toString() {
-		return "color=" + color + ", posicion=" + posicion;
+		return  posicion + ", color=" + color;
 	}
+
+	
 
 }
