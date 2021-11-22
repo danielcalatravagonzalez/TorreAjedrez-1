@@ -13,6 +13,7 @@ public class MainApp {
 		elegirColor();
 		elegirColumnaInicial();
 		mostrarMenuDirecciones();
+		elegirDireccion();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -100,5 +101,46 @@ public class MainApp {
 				System.out.println("5. Realizar un enroque corto.");
 				System.out.println("6. Realizar un enroque largo.");
 
+		}
+		
+		//Método elegirDireccion()
+		private static Direccion elegirDireccion() {
+			Direccion direccion = null;
+			int opcionDireccion = 0;
+			do {
+				System.out.println("===============");
+				System.out.println("Del menú anterior elige una opción del 1 al 6");
+				opcionDireccion = Entrada.entero();
+			}while (opcionDireccion < 1 || opcionDireccion > 6);
+			
+			switch (opcionDireccion) {
+			case 1:
+				direccion = Direccion.ARRIBA;
+				System.out.println("Has elegido mover la torre hacia arriba.");
+			break;
+			case 2:
+				direccion = Direccion.ABAJO;
+				System.out.println("Has elegido mover la torre hacia abajo.");
+			break;
+			case 3:
+				direccion = Direccion.IZQUIERDA;
+				System.out.println("Has elegido mover la torre hacia la izquierda.");
+			break;
+			case 4:
+				direccion = Direccion.DERECHA;
+				System.out.println("Has elegido mover la torre hacia la derecha.");
+			break;
+			case 5:
+				direccion = Direccion.ENROQUE_CORTO;
+				System.out.println("Has elegido utilizar el enroque corto.");
+			break;
+			case 6:
+				direccion = Direccion.ENROQUE_LARGO;
+				System.out.println("Has elegido utilizar el enroque largo.");
+			break;
+			default:
+				break;
+			}
+			return direccion;
 		}
 }
