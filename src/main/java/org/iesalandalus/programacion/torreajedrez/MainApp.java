@@ -12,6 +12,7 @@ public class MainApp {
 		elegirOpcion();
 		elegirColor();
 		elegirColumnaInicial();
+		mostrarMenuDirecciones();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -85,5 +86,19 @@ public class MainApp {
 			}while (columnaInicial != 'a' && columnaInicial != 'h');
 			System.out.println("Has elegido la columna " + columnaInicial);
 			return columnaInicial;
+		}
+		
+		//Método mostrarMenuDirecciones()
+		private static void mostrarMenuDirecciones() {
+				System.out.println("===============");
+				System.out.println("Menú elegir dirección");
+				System.out.println("Elige una de las siguientes opciones para elegir dirección:");
+				System.out.println("1. Mover torre hacia arriba.");
+				System.out.println("2. Mover torre hacia abajo.");
+				System.out.println("3. Mover torre hacia izquierda.");
+				System.out.println("4. Mover torre hacia derecha.");
+				System.out.println("5. Realizar un enroque corto.");
+				System.out.println("6. Realizar un enroque largo.");
+
 		}
 }
