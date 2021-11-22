@@ -7,6 +7,7 @@ public class MainApp {
 	private static Torre torre;
 	
 	public static void main(String[] args) {
+		crearTorreDefecto();
 		mostrarTorre();
 		mostrarMenu();
 		elegirOpcion();
@@ -142,5 +143,10 @@ public class MainApp {
 				break;
 			}
 			return direccion;
+		}
+		
+		//Método crearTorreDefecto()
+		private static void crearTorreDefecto() {
+			torre = new Torre(); 
 		}
 }
