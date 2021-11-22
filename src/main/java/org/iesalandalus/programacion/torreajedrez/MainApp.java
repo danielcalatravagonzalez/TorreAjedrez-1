@@ -11,6 +11,7 @@ public class MainApp {
 		mostrarMenu();
 		elegirOpcion();
 		elegirColor();
+		elegirColumnaInicial();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -58,16 +59,31 @@ public class MainApp {
 			
 			switch (opcionColor) {
 			case 1:
-				color = color.BLANCO;
+				color = Color.BLANCO;
 				System.out.println("Has elegido blanca.");
 			break;
 			case 2:
-				color = color.NEGRO;
+				color = Color.NEGRO;
 				System.out.println("Has elegido negra.");
 			break;
 			default:
 				break;
 			}
 			return color;
+		}
+		
+		//Método columnaInicial()
+		private static char elegirColumnaInicial() {
+			char columnaInicial = 0;
+			do {
+				System.out.println("===============");
+				System.out.println("Menú elegir columna inicial");
+				System.out.println("Elige una de las siguientes opciones escribiendo a o h:");
+				System.out.println("1. Columna a");
+				System.out.println("2. Columna h");
+				columnaInicial = Entrada.caracter();
+			}while (columnaInicial != 'a' && columnaInicial != 'h');
+			System.out.println("Has elegido la columna " + columnaInicial);
+			return columnaInicial;
 		}
 }
