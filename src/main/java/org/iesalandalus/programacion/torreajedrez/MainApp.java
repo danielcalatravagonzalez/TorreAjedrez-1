@@ -10,6 +10,7 @@ public class MainApp {
 		mostrarTorre();
 		mostrarMenu();
 		elegirOpcion();
+		elegirColor();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -41,4 +42,32 @@ public class MainApp {
 		}while (opcionMenu <1 || opcionMenu >5);
 		System.out.println("La opción elegida es la " + opcionMenu);
 	}
+	
+	//Método elegirColor()
+		private static Color elegirColor() {
+			Color color = null;
+			int opcionColor = 0;
+			do {
+				System.out.println("===============");
+				System.out.println("Menú elegir color");
+				System.out.println("Elige una de las siguientes opciones entre 1 y 2:");
+				System.out.println("1. Blanca");
+				System.out.println("2. Negra");
+				opcionColor = Entrada.entero();
+			}while (opcionColor != 1 && opcionColor != 2);
+			
+			switch (opcionColor) {
+			case 1:
+				color = color.BLANCO;
+				System.out.println("Has elegido blanca.");
+			break;
+			case 2:
+				color = color.NEGRO;
+				System.out.println("Has elegido negra.");
+			break;
+			default:
+				break;
+			}
+			return color;
+		}
 }
