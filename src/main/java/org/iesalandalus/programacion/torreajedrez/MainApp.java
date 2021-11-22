@@ -5,11 +5,11 @@ import org.iesalandalus.programacion.utilidades.Entrada;
 public class MainApp {
 	//Atributos
 	private static Torre torre;
-	int eleccion;
 	
 	public static void main(String[] args) {
 		mostrarTorre();
 		mostrarMenu();
+		elegirOpcion();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -31,5 +31,14 @@ public class MainApp {
 		System.out.println("5. Salir.");
 		
 	}
-
+	
+	//Método elegirOpcion()
+	private static void elegirOpcion() {
+		int opcionMenu;
+		do {
+			System.out.println("Elige una de las opciones mostradas anteriormente del 1 al 5:");
+			opcionMenu = Entrada.entero();
+		}while (opcionMenu <1 || opcionMenu >5);
+		System.out.println("La opción elegida es la " + opcionMenu);
+	}
 }
