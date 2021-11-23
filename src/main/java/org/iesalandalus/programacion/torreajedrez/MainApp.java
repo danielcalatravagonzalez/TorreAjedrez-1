@@ -9,17 +9,26 @@ public class MainApp {
 	private static Torre torre;
 
 	public static void main(String[] args) {
-		crearTorreDefecto();
-		mostrarTorre();
-		mostrarMenu();
-		elegirOpcion();
-		elegirColor();
-		elegirColumnaInicial();
-		mostrarMenuDirecciones();
-		elegirDireccion();
-		crearTorreColor();
-		crearTorreColorColumna();
-		mover();
+		int contador = 1;
+		int pulsador;
+		
+		System.out.println("========================");
+		System.out.println("Simulación TorreAjedrez:");
+		System.out.println("========================");
+		
+		do {
+			mostrarMenu();
+			pulsador = elegirOpcion();
+			ejecutarOpcion(pulsador);
+			
+			if (pulsador != 5) {
+				mostrarTorre();
+			}
+			
+			if (pulsador == 5) {
+				contador = 0;
+			}
+		} while (contador != 0);
 	}
 
 	// Métodos
@@ -44,13 +53,14 @@ public class MainApp {
 	}
 
 	// Método elegirOpcion()
-	private static void elegirOpcion() {
+	private static int elegirOpcion() {
 		int opcionMenu;
 		do {
 			System.out.println("Elige una de las opciones mostradas anteriormente del 1 al 5:");
 			opcionMenu = Entrada.entero();
 		} while (opcionMenu < 1 || opcionMenu > 5);
 		System.out.println("La opción elegida es la " + opcionMenu);
+		return opcionMenu;
 	}
 
 	// Método elegirColor()
