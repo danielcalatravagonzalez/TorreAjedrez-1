@@ -15,6 +15,7 @@ public class MainApp {
 		elegirColumnaInicial();
 		mostrarMenuDirecciones();
 		elegirDireccion();
+		crearTorreColor();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -148,5 +149,10 @@ public class MainApp {
 		//Método crearTorreDefecto()
 		private static void crearTorreDefecto() {
 			torre = new Torre(); 
+		}
+		
+		//Método crearTorreColor()
+		private static void crearTorreColor() {
+			torre = new Torre(elegirColor()); 
 		}
 }
