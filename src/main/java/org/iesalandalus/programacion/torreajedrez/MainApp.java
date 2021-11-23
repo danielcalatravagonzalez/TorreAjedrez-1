@@ -16,6 +16,7 @@ public class MainApp {
 		mostrarMenuDirecciones();
 		elegirDireccion();
 		crearTorreColor();
+		crearTorreColorColumna();
 	}
 	//Métodos
 	//Método mostrarTorre() 
@@ -83,8 +84,7 @@ public class MainApp {
 				System.out.println("===============");
 				System.out.println("Menú elegir columna inicial");
 				System.out.println("Elige una de las siguientes opciones escribiendo a o h:");
-				System.out.println("1. Columna a");
-				System.out.println("2. Columna h");
+				System.out.println("Columna a, Columna h.");
 				columnaInicial = Entrada.caracter();
 			}while (columnaInicial != 'a' && columnaInicial != 'h');
 			System.out.println("Has elegido la columna " + columnaInicial);
@@ -155,4 +155,9 @@ public class MainApp {
 		private static void crearTorreColor() {
 			torre = new Torre(elegirColor()); 
 		}
+		
+		//Método crearTorreColorColumna()
+				private static void crearTorreColorColumna() {
+					torre = new Torre(elegirColor(), elegirColumnaInicial()); 
+				}
 }
